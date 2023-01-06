@@ -41,5 +41,6 @@
             </div>
         @endforeach
     </div>
+    <p><a href="{{ route('stars.create') }}">+ Créer</a></p>
 </body>
 </html>

@@ -25,7 +25,7 @@ class StarController extends Controller
      */
     public function create()
     {
-        //
+        return response()->view('stars.create');
     }
 
     /**
@@ -36,7 +36,16 @@ class StarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'image' => 'required',
+            'description' => 'required'
+        ]);
+
+        Star::create($request->post());
+
+        return redirect()->route('stars.index')->with('success','Création réussie');
     }
 
     /**
@@ -81,6 +90,7 @@ class StarController extends Controller
      */
     public function destroy(Star $star)
     {
-        //
+        $star->delete();
+        return redirect()->route('stars.index')->with('success','suppression confirmée');
     }
 }
