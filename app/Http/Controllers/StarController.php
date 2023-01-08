@@ -67,7 +67,7 @@ class StarController extends Controller
      */
     public function edit(Star $star)
     {
-        //
+        return response()->view('stars.edit',compact('star'));
     }
 
     /**
@@ -79,7 +79,16 @@ class StarController extends Controller
      */
     public function update(Request $request, Star $star)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'image' => 'required',
+            'description' => 'required'
+        ]);
+
+        $star->fill($request->post())->save();
+
+        return redirect()->route('stars.index')->with('success','Modification enregistrée');
     }
 
     /**
