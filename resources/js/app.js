@@ -2,4 +2,6 @@ import './bootstrap'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount("#app");
+const mountEl = document.querySelector("#app");
+createApp(App, { stars: JSON.parse(mountEl.dataset.stars) }).mount("#app");
+mountEl.removeAttribute('data-stars');
