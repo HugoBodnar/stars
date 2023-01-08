@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>BackOffice : stars</title>
-    <style>
-        .success {
-            color: green;
-        }
-
-        .star {
-            display: inline-block;
-            border: 1px solid #aaa;
-            margin: 20px 0;
-            padding: 10px;
-        }
-
-        form {
-            display: inline-block;
-        }
-
-        a, button {
-            margin-left: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/backoffice.css') }}">
 </head>
 <body>
+    <h1>BackOffice</h1>
     @if ($message = Session::get('success'))
-        <p class="success">{{ $message }}</p>
+        <div class="alert success">{{ $message }}</div>
     @endif
     <div class="stars">
         @foreach ($stars as $star)
             <div class="star">
-                {{ $star->firstname . ' ' . $star->lastname }}
-                <a href="{{ route('stars.edit',$star->id) }}">Edit</a>
+                <div class="name">{{ $star->firstname . ' ' . $star->lastname }}</div>
+                <a href="{{ route('stars.edit',$star->id) }}"><button>Edit</button></a>
                 <form action="{{ route('stars.destroy', $star->id) }}" method="Post">
                     @csrf
                     @method('DELETE')
@@ -40,7 +22,7 @@
                 </form>
             </div>
         @endforeach
+        <a href="{{ route('stars.create') }}"><button>+ Créer</button></a>
     </div>
-    <p><a href="{{ route('stars.create') }}">+ Créer</a></p>
 </body>
 </html>

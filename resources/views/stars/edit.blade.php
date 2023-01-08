@@ -3,29 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>BackOffice : édition</title>
-    <style>
-        input {
-            display: block;
-            width: 300px;
-            height: 26px;
-            margin: 10px;
-        }
-        textarea {
-            display: block;
-            width: 300px;
-            height: 200px;
-            margin: 10px;
-        }
-        button {
-            display: block;
-            width: 100px;
-            height: 26px;
-            margin: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/backoffice.css') }}">
 </head>
 <body>
-    <p><a href="{{ route('stars.index') }}">< Retour</a></p>
+    <h1>BackOffice : édition</h1>
+    <div>
+        <a href="{{ route('stars.index') }}"><button>< Retour</button></a>
+    </div>
     <form action="{{ route('stars.update',$star->id) }}" method="POST">
         @csrf
         @method('PUT')

@@ -1,0 +1,59 @@
+html,
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Calibri', sans-serif;
+}
+
+.alert.success {
+    color: green;
+    margin-bottom: 10px;
+}
+
+.stars {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.star {
+    border-radius: 5px;
+    width: 300px;
+    display: inline-flex;
+    border: 1px solid #aaa;
+    padding: 10px;
+}
+
+.star .name {
+    flex: 1;
+}
+
+form {
+    display: inline-block;
+}
+
+input,
+textarea,
+button {
+    margin: 10px 0;
+}
+
+button {
+    margin-right: 10px;
+}
+
+input {
+    display: block;
+    width: 300px;
+    height: 26px;
+}
+textarea {
+    display: block;
+    width: 300px;
+    height: 200px;
+}
+
+a, button {
+    display: inline-block;
+    cursor: pointer;
+}
